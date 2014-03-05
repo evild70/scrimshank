@@ -1,0 +1,21 @@
+.main-story-container {
+    background: #848484;
+    height: 500px;
+    position: relative;
+    width: 100%;
+    h1 {
+        margin: 0;
+    }
+}
+
+.main-story-content {
+    position: absolute;
+    bottom: 0;
+    margin-left: 3.5%;
+    max-width: 60em;
+    width: 90%;
+    @media #{$large-up} {
+        left: 50%;
+        margin-left: -480px;
+    }
+}
