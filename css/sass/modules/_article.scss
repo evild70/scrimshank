@@ -1,0 +1,15 @@
+.inner-wrapper {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+.article {
+    background-color: #eee;
+    float: left;
+    margin-bottom: 1.25em;
+    margin-right: 2.0%;
+    width: 48.8%;
+    &:nth-child(2n) {
+        margin-right: 0;
+    }
+}
