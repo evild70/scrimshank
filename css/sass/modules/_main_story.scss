@@ -6,6 +6,12 @@
     h1 {
         margin: 0;
     }
+    .story-page & {
+        float: left;
+        height: 100%;
+        width: 50%;
+        position: fixed;
+    }
 }
 
 .main-story-content {

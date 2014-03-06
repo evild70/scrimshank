@@ -1,3 +1,12 @@
+.body-wrapper {
+  height: auto;
+  position: relative;
+  width: 100%;
+}
+.story-page .body-wrapper {
+  overflow: hidden;
+}
+
 meta.foundation-version {
   font-family: "/5.1.0/";
 }
@@ -6506,19 +6515,19 @@ th.hide-for-touch {
   padding-top: 20px;
 }
 
-.inner-wrapper {
+.other-stories-inner-wrapper {
   max-width: 60em;
   width: 93.75%;
   margin: 0 3.125%;
 }
 @media only screen and (min-width: 40.063em) {
-  .inner-wrapper {
+  .other-stories-inner-wrapper {
     width: 95.8333333%;
     margin: 0 2.0833333%;
   }
 }
 @media only screen and (min-width: 60.0625em) {
-  .inner-wrapper {
+  .other-stories-inner-wrapper {
     width: 100%;
     margin: 0 auto;
   }
@@ -6560,12 +6569,54 @@ th.hide-for-touch {
   }
 }
 
+.coverage-container {
+  padding: 20px 0 0 0;
+  width: 100%;
+}
+@media only screen and (min-width: 40.063em) {
+  .coverage-container {
+    float: right;
+    height: auto;
+    width: 50%;
+    overflow: auto;
+  }
+}
+@media only screen and (min-width: 60.0625em) {
+  .coverage-container {
+    padding: 20px;
+  }
+}
+
+.coverage-inner-wrapper {
+  max-width: 60em;
+  width: 93.75%;
+  margin: 0 3.125%;
+}
+@media only screen and (min-width: 40.063em) {
+  .coverage-inner-wrapper {
+    float: left;
+    width: 95.8333333%;
+    margin: 0;
+  }
+}
+@media only screen and (min-width: 60.0625em) {
+  .coverage-inner-wrapper {
+    width: 100%;
+  }
+}
+
 .header {
   height: auto;
   margin: 0 auto;
   position: absolute;
   width: 100%;
   z-index: 1000;
+}
+@media only screen and (min-width: 40.063em) {
+  .story-page .header {
+    position: fixed;
+    width: 50%;
+  }
 }
 
 .header-container {
@@ -6593,6 +6644,12 @@ th.hide-for-touch {
 }
 .main-story-container h1 {
   margin: 0;
+}
+.story-page .main-story-container {
+  float: left;
+  height: 100%;
+  width: 50%;
+  position: fixed;
 }
 
 .main-story-content {

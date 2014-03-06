@@ -1,1 +1,10 @@
 @import "compass/css3";
+
+.body-wrapper {
+    height: auto;
+    position: relative;
+    width: 100%;
+    .story-page & {
+        overflow: hidden;
+    }
+}
