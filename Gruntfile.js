@@ -239,11 +239,12 @@ module.exports = function (grunt) {
                     '{,*/}*.css',
                     'images/**/*.{gif,jpeg,jpg,png,svg,webp}'
                 ]
-            },
-            scripts: {
-                files: ['<%= jshint.files %>'],
-                tasks: ['jshint']
             }
+            // ,
+            // scripts: {
+            //     files: ['<%= jshint.files %>'],
+            //     tasks: ['jshint']
+            // }
         },
 
         /**
