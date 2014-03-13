@@ -1,31 +1,38 @@
-window.App = Ember.Application.create({
-  VERSION: '0.0.1',
-  LOG_TRANSITIONS: true,
-  rootElement: '#body',
-  ready: function() {
-
-  }
-});
+window.App = Ember.Application.create();
 
 /**
  * Router
  */
 App.Router.map(function() {
-    this.resource("story");
+    this.resource('stories');
+    this.resource('story', { path: '/stories/:id'});
+    // this.resource('stories', function() {
+    //   this.resource('story', { path: ':id'});
+    // });
+
 });
 
 /**
  * Routes
  */
-App.IndexRoute = Em.Route.extend({
+App.IndexRoute = Ember.Route.extend({
+  redirect: function() {
+    this.transitionTo('stories');
+  },
   model: function() {
-      return;
+      return App.STORIESDATA;
   }
 });
 
-App.StoryRoute = Em.Route.extend({
+App.StoriesRoute = Ember.Route.extend({
   model: function() {
-      return ;
+      return App.STORIESDATA;
+  }
+});
+
+App.StoryRoute = Ember.Route.extend({
+  model: function(params) {
+    return App.STORIESDATA.findBy('id', params.id);
   }
 });
 
@@ -34,16 +41,37 @@ App.StoryRoute = Em.Route.extend({
  * Controllers
  */
 
-App.IndexController = Em.ObjectController.extend({
-    title: 'SCRIMSHANK'
+App.IndexController = Ember.ArrayController.extend({
+
 });
+
+App.StoriesController = Ember.ArrayController.extend({
+  // needs: [],
+});
+
 
 /**
  * Models
  */
-// App.Index = DS.Model.extend({
-//   title: DS.attr('string')
-// });
+
+App.STORIESDATA = [
+    {
+        id: '1',
+        heading: 'Story 1',
+        subheading: 'Subheading 1',
+        teaserContent: 'Teaser Content 1',
+        listOfSites: ['Kotaku', 'Polygon', 'Joystiq', 'Gamespot'],
+        freshness: 1
+    },
+    {
+        id: '2',
+        heading: 'Story 2',
+        subheading: 'Subheading 2',
+        teaserContent: 'Teaser Content 2',
+        listOfSites: ['Joystiq', 'Gamespot'],
+        freshness: 2
+    }
+];
 
 
 

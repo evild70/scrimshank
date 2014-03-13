@@ -10,6 +10,7 @@
 <body id="body">
 
     <script type="text/x-handlebars" data-template-name="application">
+    <div class="body-wrapper">
         <div class="header">
             <div class="header-container">
                 <div class="logo"><a href="/"><img src="/images/logo.png" alt="SCRIMSHANK" /></a></div>
@@ -17,14 +18,67 @@
             </div>
         </div>
         {{ outlet }}
+    </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="index">
-        <h1>{{title}}</h1>
+
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="stories">
+        <div class="main-story-container">
+            <div class="main-story-content">
+                <h1>Main story</h1>
+            </div>
+        </div>
+
+        <div class="other-stories-container">
+            <div class="other-stories-inner-wrapper clearfix">
+                <div class="article-list-container clearfix">
+                    {{#each}}
+                    <div class="article">
+                        <div class="article-content">
+                            <h1>{{#link-to 'story' this}}{{heading}}{{/link-to}}</h1>
+                            <h2>{{subheading}}</h2>
+                            <div class="teaser">{{teaserContent}}</div>
+                            <div class="reporting">{{listOfSites}}</div>
+                            <div class="updated">
+                                <span>Fresh:</span> <a class="freshness" href="#">about {{freshness}} hours</a>
+                            </div>
+                        </div>
+                        <div class="article-image-container"></div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="story">
-        <h1>Story</h1>
+        <div class="main-story-container">
+            <div class="main-story-content">
+                <h1>{{heading}}</h1>
+            </div>
+        </div>
+        <div class="coverage-container">
+            <h1>Coverage on story</h1>
+            <div class="coverage-inner-wrapper clearfix">
+                <div class="coverage-list-container clearfix">
+                    <div class="coverage">
+                        <div class="coverage-content">
+                            <h1>Article Heading</h1>
+                            <h2>Article Sub Heading</h2>
+                            <div class="teaser">Teaser content</div>
+                            <div class="reporting">List, of, sites, reporting, story</div>
+                            <div class="updated">
+                                <span>Fresh:</span> <a class="freshness" href="#">about 1 hours</a>
+                            </div>
+                        </div>
+                        <div class="coverage-image-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </script>
 
     <!-- <div class="body-wrapper">
