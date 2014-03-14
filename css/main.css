@@ -6543,7 +6543,7 @@ th.hide-for-touch {
 .article {
   background-color: #eee;
   float: left;
-  height: 400px;
+  height: 200px;
   margin-bottom: 1.25em;
   margin-right: 0;
   width: 100%;
@@ -6638,7 +6638,7 @@ th.hide-for-touch {
 
 .main-story-container {
   background: #848484;
-  height: 500px;
+  height: 250px;
   position: relative;
   width: 100%;
 }

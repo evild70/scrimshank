@@ -41,7 +41,11 @@
                             <h1>{{#link-to 'story' this}}{{heading}}{{/link-to}}</h1>
                             <h2>{{subheading}}</h2>
                             <div class="teaser">{{teaserContent}}</div>
-                            <div class="reporting">{{listOfSites}}</div>
+                            <div class="reporting">
+                                {{#each blog in blogs}}
+                                    {{blog.name}},&nbsp;
+                                {{/each}}
+                            </div>
                             <div class="updated">
                                 <span>Fresh:</span> <a class="freshness" href="#">about {{freshness}} hours</a>
                             </div>
@@ -58,27 +62,47 @@
         <div class="main-story-container">
             <div class="main-story-content">
                 <h1>{{heading}}</h1>
+                <div class="blogs">
+                    {{#each blog in blogs}}
+                        {{blog.name}},&nbsp;
+                    {{/each}}
+                </div>
             </div>
         </div>
         <div class="coverage-container">
             <h1>Coverage on story</h1>
             <div class="coverage-inner-wrapper clearfix">
                 <div class="coverage-list-container clearfix">
-                    <div class="coverage">
-                        <div class="coverage-content">
-                            <h1>Article Heading</h1>
-                            <h2>Article Sub Heading</h2>
-                            <div class="teaser">Teaser content</div>
-                            <div class="reporting">List, of, sites, reporting, story</div>
-                            <div class="updated">
-                                <span>Fresh:</span> <a class="freshness" href="#">about 1 hours</a>
+                    {{#each report in reports}}
+                        <div class="coverage">
+                            <div class="coverage-content">
+                                <h2>{{ report.blog.name }}</h2>
+                                <div class="teaser">{{ report.content }}</div>
+                                <div class="updated">
+                                    Date Posted: {{ report.postedDate }}
+                                </div>
                             </div>
+                            <div class="coverage-image-container"></div>
                         </div>
-                        <div class="coverage-image-container"></div>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
         </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="report">
+        {{#each report in controller}}
+            <div class="coverage">
+                <div class="coverage-content">
+                    <h2>{{ report.blog.name }}</h2>
+                    <div class="teaser">{{ report.content }}</div>
+                    <div class="updated">
+                        Date Posted: {{ report.postedDate }}
+                    </div>
+                </div>
+                <div class="coverage-image-container"></div>
+            </div>
+        {{/each}}
     </script>
 
     <!-- <div class="body-wrapper">
@@ -152,8 +176,8 @@
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>
     <script src="bower_components/handlebars/handlebars.js"></script>
-    <script src="bower_components/ember/ember.js"></script>
-    <!--<script src="bower_components/ember-data/ember-data.js"></script>-->
+    <script src="http://builds.emberjs.com/release/ember.js"></script>
+    <script src="http://builds.emberjs.com/beta/ember-data.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
